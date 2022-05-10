@@ -9,7 +9,7 @@ const middlewares = jsonServer.defaults();
 //   static: "./build",
 // });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 server.use("/db", middlewares, router);
 // server.use(
 //   jsonServer.rewriter({
@@ -18,7 +18,7 @@ server.use("/db", middlewares, router);
 // );
 
 // server.use(router);
-server.use(express.static(path.join(__dirname, "build")));
+server.use(express.static(path.join(__dirname, "build", "index.html")));
 server.use(cors());
 server.listen(port, () => {
   console.log(`Server running on port ${port}`);
