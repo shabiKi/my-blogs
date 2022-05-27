@@ -13,7 +13,7 @@ const BlogDetails = () => {
   // );
 
   const handleClick = () => {
-    fetch("http://localhost:5000/blogs/" + blog.id, {
+    fetch("http://localhost:8000/blogs/" + blog.id, {
       //  "https://my-json-server.typicode.com/shabiKi/my-blogs/blogs/" + blog.id,
       // {
       method: "DELETE",
