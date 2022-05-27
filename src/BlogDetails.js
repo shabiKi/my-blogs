@@ -8,12 +8,15 @@ const BlogDetails = () => {
     data: blog,
     error,
     isLoading,
-  } = useFetch("http://localhost:8000/blogs/" + id);
+  } = useFetch("https://blogsapp1.herokuapp.com/blogs/" + id);
+
+  //= useFetch("http://localhost:8000/blogs/" + id);
   //   "https://my-json-server.typicode.com/shabiKi/my-blogs/blogs/" + id
   // );
 
   const handleClick = () => {
-    fetch("http://localhost:8000/blogs/" + blog.id, {
+    //fetch("http://localhost:8000/blogs/"
+    fetch("https://blogsapp1.herokuapp.com/blogs/" + blog.id, {
       //  "https://my-json-server.typicode.com/shabiKi/my-blogs/blogs/" + blog.id,
       // {
       method: "DELETE",

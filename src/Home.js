@@ -6,8 +6,9 @@ const Home = () => {
     data: blogs,
     isLoading,
     error,
-  } = useFetch("http://localhost:8000/blogs");
-  //= useFetch("https://blogapp1191.netlify.app/blogs");
+  } = useFetch("https://blogsapp1.herokuapp.com/blogs");
+
+  //= useFetch("http://localhost:8000/blogs");
 
   //} = useFetch("https://my-json-server.typicode.com/shabiKi/my-blogs/blogs/");
 
