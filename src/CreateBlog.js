@@ -13,7 +13,8 @@ const CreateBlog = () => {
 
     const blog = { title, body, author };
     setIsLoading(true);
-    fetch("http://localhost:8000/blogs", {
+    fetch("https://blogsapp1.herokuapp.com/blogs", {
+      //fetch("http://localhost:8000/blogs", {
       //fetch("https://my-json-server.typicode.com/shabiKi/my-blogs/blogs/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
