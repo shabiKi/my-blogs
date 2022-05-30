@@ -2,15 +2,19 @@ import BlogList from "./BlogList";
 import useFetch from "./useFetch";
 
 const Home = () => {
+  const devEnv = process.env.NODE_ENV !== "production";
+  //const { REACT_APP_DEV_URL, REACT_APP_PROD_URL } = process.env;
   const {
     data: blogs,
     isLoading,
     error,
-  } = useFetch("https://blogsapp1.herokuapp.com/blogs");
-
-  //= useFetch("http://localhost:8000/blogs");
-
-  //} = useFetch("https://my-json-server.typicode.com/shabiKi/my-blogs/blogs/");
+  } = useFetch(
+    `${
+      devEnv
+        ? "http://localhost:8000/blogs"
+        : "https://blogsapp1.herokuapp.com/blogs"
+    }`
+  );
 
   return (
     <div className="home">

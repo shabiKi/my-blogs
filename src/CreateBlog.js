@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const CreateBlog = () => {
+const CreateBlog = (devEnv) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("adam");
@@ -13,18 +13,19 @@ const CreateBlog = () => {
 
     const blog = { title, body, author };
     setIsLoading(true);
-    fetch("https://blogsapp1.herokuapp.com/blogs", {
-      //fetch("http://localhost:8000/blogs", {
-      //fetch("https://my-json-server.typicode.com/shabiKi/my-blogs/blogs/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(blog),
-    }).then(() => {
+    fetch(
+      `${
+        devEnv
+          ? "http://localhost:8000/blogs"
+          : "https://blogsapp1.herokuapp.com/blogs"
+      }`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(blog),
+      }
+    ).then(() => {
       console.log("blog added");
-      // console.log(blog);
-      //   setTitle("");
-      //   setBody("");
-      //   setAuthor("adam");
       setIsLoading(false);
       history.push("/");
       console.log(blog);

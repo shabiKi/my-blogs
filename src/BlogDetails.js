@@ -1,26 +1,32 @@
 import { useHistory, useParams } from "react-router";
 import useFetch from "./useFetch";
 
-const BlogDetails = () => {
+const BlogDetails = (devEnv) => {
   const { id } = useParams();
   const history = useHistory();
   const {
     data: blog,
     error,
     isLoading,
-  } = useFetch("https://blogsapp1.herokuapp.com/blogs/" + id);
-
-  //= useFetch("http://localhost:8000/blogs/" + id);
-  //   "https://my-json-server.typicode.com/shabiKi/my-blogs/blogs/" + id
-  // );
+  } = useFetch(
+    `${
+      devEnv
+        ? "http://localhost:8000/blogs/" + id
+        : "https://blogsapp1.herokuapp.com/blogs/" + id
+    }`
+  );
 
   const handleClick = () => {
-    fetch("https://blogsapp1.herokuapp.com/blogs/" + blog.id, {
-      // fetch("http://localhost:8000/blogs/" + id, {
-      //  "https://my-json-server.typicode.com/shabiKi/my-blogs/blogs/" + blog.id,
-      // {
-      method: "DELETE",
-    }).then(() => {
+    fetch(
+      `${
+        devEnv
+          ? "http://localhost:8000/blogs/" + blog.id
+          : "https://blogsapp1.herokuapp.com/blogs/" + blog.id
+      }`,
+      {
+        method: "DELETE",
+      }
+    ).then(() => {
       history.push("/");
     });
   };
