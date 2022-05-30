@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const CreateBlog = (devEnv) => {
+const CreateBlog = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("adam");
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
+  const devEnv = process.env.NODE_ENV !== "production";
 
   const handleSubmit = (e) => {
     e.preventDefault();

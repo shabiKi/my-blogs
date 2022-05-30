@@ -1,9 +1,10 @@
 import { useHistory, useParams } from "react-router";
 import useFetch from "./useFetch";
 
-const BlogDetails = (devEnv) => {
+const BlogDetails = () => {
   const { id } = useParams();
   const history = useHistory();
+  const devEnv = process.env.NODE_ENV !== "production";
   const {
     data: blog,
     error,
